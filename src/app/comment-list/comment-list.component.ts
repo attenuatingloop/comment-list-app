@@ -41,6 +41,10 @@ export class CommentListComponent {
       );
       // Careful to only sow the filtered user list if it is not empty.
       this.showUserList = this.filteredUsers?.length ? true : false;
+    } else {
+      // Hide the user list if there is no mention.
+      // Sometimes the user might delete the @ symbol.
+      this.showUserList = false;
     }
   }
 
