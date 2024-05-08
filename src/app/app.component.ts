@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { User } from './user-service/user.interface';
 
 @Component({
-  selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  selector: 'app-root',
+  imports: [CommentListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'comments-app';
+  constructor() {}
+
+  alertUser(mention: User): void {
+    console.log('mention', mention);
+    // Alert is for demonstration purposes only.
+    alert(`User ${mention.name} has been tagged!`);
+  }
 }

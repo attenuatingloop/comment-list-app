@@ -1,0 +1,12 @@
+button > i + span {
+  padding-left: 10px;
+}
+
+.comment-block {
+  display: flex;
+  justify-content: space-between;
+
+  .comment-timestamp {
+    color: #aaa;
+  }
+}

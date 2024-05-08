@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Comments</h2>
+  <ul *ngIf="comments.length" class="list-group mt-3 mb-3">
+    <li class="list-group-item" *ngFor="let comment of comments">
+      <div class="comment-block">
+        <div class="comment-text">{{ comment.text }}</div><div class="comment-timestamp">{{comment.timestamp | date: 'yyyy/mm/dd h:mm a'}}</div>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="!comments.length && !addCommentForm">
+    <p>No comments yet</p>
+  </div>
+  <div *ngIf="addCommentForm" class="form-group">
+    <textarea class="form-control mt-50" [(ngModel)]="commentText" (input)="checkForMentions($event)"></textarea>
+  </div>
+  <div *ngIf="showUserList">
+    <div class="dropdown-menu show">
+      <a *ngFor="let user of filteredUsers" (click)="addUserTag(user)" class="dropdown-item" href="#">{{ user.name }}</a>
+    </div>
+  </div>
+  <button *ngIf="!addCommentForm" class="btn btn-primary mt-3" (click)="addCommentForm = true"><i class="bi bi-chat-right-fill"></i><span>Add Comment</span></button>
+  <button *ngIf="addCommentForm" class="btn btn-primary mt-3" (click)="addComment()"><i class="bi bi-chat-right-fill"></i><span>Save Comment</span></button>
+</div>
