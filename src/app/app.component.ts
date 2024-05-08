@@ -13,7 +13,6 @@ export class AppComponent {
   constructor() {}
 
   alertUser(mention: User): void {
-    console.log('mention', mention);
     // Alert is for demonstration purposes only.
     alert(`User ${mention.name} has been tagged!`);
   }
